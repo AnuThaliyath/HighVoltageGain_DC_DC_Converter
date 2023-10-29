@@ -1,0 +1,30 @@
+* D:\Anu\DC_DC converter.asc
+Vin1 N001 0 20 Rser=0.1
+Vpulse1 Vin1 0 PULSE(0 20 6.7u 0.1u 0.1u 6.64u 10u) Rser=0.1
+Vin2 N007 0 20 Rser=0.1
+Vpulse2 Vin2 0 PULSE(0 20 0u 0.1u 0.1u 6.64u 10u) Rser=0.1
+L1 N001 N002 100µ Ipk=0 Rser=0 Rpar=0 Cpar=0
+D1 0 N002 MBR735
+D2 0 N008 MBR735
+D3 N002 N003 MBR735
+D4 N003 N004 MBR735
+D5 N004 N005 MBR735
+D6 N005 N006 MBR735
+Dout N006 Vout MBR735
+C1 N003 N008 20µ V=16 Irms=0 Rser=0 Lser=0 mfg="Murata" pn="GRMJN7R61C206ME05" type="X5R"
+C2 N002 N004 20µ V=16 Irms=0 Rser=0 Lser=0 mfg="Murata" pn="GRMJN7R61C206ME05" type="X5R"
+C3 N005 N008 20µ V=16 Irms=0 Rser=0 Lser=0 mfg="Murata" pn="GRMJN7R61C206ME05" type="X5R"
+C4 N002 N006 20µ V=16 Irms=0 Rser=0 Lser=0 mfg="Murata" pn="GRMJN7R61C206ME05" type="X5R"
+Rout Vout 0 400
+M§S1 N002 Vin1 0 0 IPA086N10N3
+M§S2 N008 Vin2 0 0 IPA086N10N3
+Cout Vout 0 22µ V=16 Irms=0 Rser=0 Lser=0
+L2 N007 N008 100µ Ipk=0 Rser=0 Rpar=0 Cpar=0
+.model D D
+.lib C:\Users\Anumol\Documents\LTspiceXVII\lib\cmp\standard.dio
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\Anumol\Documents\LTspiceXVII\lib\cmp\standard.mos
+.tran 0 100m .1m
+.backanno
+.end
